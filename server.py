@@ -2,7 +2,7 @@ import socket
 import threading
 
 header = 64
-format = 'utf-8'
+decodeFormat = 'utf-8'
 bufferSize = 1024
 port = 5050
 server = socket.gethostbyname(socket.gethostname())
@@ -16,14 +16,13 @@ def handleClient(conn,adddr):
     connected = True
 
     while connected:
-        msgLength = conn.recv(header).decode(format)
-        msgLength = int(msgLength)
-        msg = conn.recv(msgLength).decode(format)
-
-        if msg == disconnect:
-            connected = False
-
-        print(f"[{addr}] : {msg}")
+        msgLength = conn.recv(header).decode(decodeFormat)
+        if msgLength:
+            msgLength = int(msgLength)
+            msg = conn.recv(msgLength).decode(decodeFormat)
+            if msg == disconnect: 
+                connected = False
+            print(f"[{addr}] : {msg}")
 
     conn.close()
 
@@ -37,7 +36,7 @@ def acceptConnection():
         conn,addr = server.accept()
         thread = threading.Thread(target=handleClient,args=(conn,addr))
         thread.start()
-        print("[ACTIVE CONNECTIONS] total connection = ",clientCount)
+        print("[ACTIVE CONNECTIONS] total connection = ",threading.activeCount() - 1)
 
 print("[STARTING] server has started running")
 acceptConnection();
