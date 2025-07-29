@@ -21,9 +21,6 @@ def sendMsg(msg):
     strLength += b' ' * (header - len(strLength))
     client.send(strLength)
     client.send(message)
-
-
-
 sendMsg("Hello World!")
 
 
