@@ -1,6 +1,5 @@
 import socket
 import time
-
 header = 10
 ADDR = socket.gethostbyname(socket.gethostname())
 PORT = 6060
