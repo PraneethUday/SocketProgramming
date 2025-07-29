@@ -2,6 +2,7 @@ import socket
 import threading
 
 addr = socket.gethostbyname(socket.gethostname())
+print(addr)
 port = 8001
 
 client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

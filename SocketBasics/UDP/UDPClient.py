@@ -1,7 +1,7 @@
 import socket
 
 addr = socket.gethostbyname(socket.gethostname())
-port = 8002
+port = 8003
 
 client = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 

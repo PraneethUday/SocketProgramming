@@ -7,4 +7,4 @@ while True:
     modified_message = message.decode().upper()
     server_socket.sendto(modified_message.encode(),client_address)
     print("message sent to client:", modified_message.encode())
-server_socket.close()   
+server_socket.close()
