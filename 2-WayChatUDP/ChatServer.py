@@ -1,7 +1,8 @@
 import socket
 import threading
 import sys
-addr = socket.gethostbyname(socket.gethostname())
+
+addr = "172.20.10.3"
 port = 8001
 print("[Server starting]")
 server = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)

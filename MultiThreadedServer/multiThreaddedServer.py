@@ -1,8 +1,8 @@
 import socket
 from _thread import *
 
-host = socket.gethostbyname(socket.gethostname())
-port = 5002
+host = "172.20.10.3"
+port = 9000
 threadCount = 0
 encodeFormat = "utf-8"
 
