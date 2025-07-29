@@ -2,7 +2,7 @@ import socket
 from _thread import *
 
 host = socket.gethostbyname(socket.gethostname())
-port = 6003
+port = 5002
 threadCount = 0
 encodeFormat = "utf-8"
 
@@ -18,13 +18,13 @@ print("[Waiting for connection]")
 server.listen(5)
 
 def clientThread(client):
-    client.send(str("Welcome the Server").encode(encodeFormat))
+    client.send("Welcome the Server".encode(encodeFormat))
     while True:
         msg = client.recv(1024)
         if not msg:
             break
         recMsg = msg.decode(encodeFormat)
-        sendMsg = f"Hello I am Server from the IP {host}.You said : {recMsg}"
+        sendMsg = f"Hello I am Server from the IP {host}.You said : {recMsg}".encode("utf-8")
         client.sendall(sendMsg)
     client.close()
 
