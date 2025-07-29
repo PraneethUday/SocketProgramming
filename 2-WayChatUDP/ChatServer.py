@@ -1,16 +1,12 @@
 import socket
 import threading
 import sys
-
 addr = socket.gethostbyname(socket.gethostname())
 port = 8001
-
 print("[Server starting]")
 server = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 server.bind((addr,port))
-
 clientAddr = None
-
 def recvMsg():
     global clientAddr
     while True:
